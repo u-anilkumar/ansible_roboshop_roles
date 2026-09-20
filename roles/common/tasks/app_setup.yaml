@@ -17,7 +17,7 @@
   ansible.builtin.file:
     path: /tmp/{{ component }}.zip
     state: absent
-- name: donwload code:
+- name: donwload code
   ansible.builtin.get_url:
     path: /tmp/{{ component }}.zip
     url: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}-v3.zip 
