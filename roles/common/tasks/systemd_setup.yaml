@@ -1,6 +1,6 @@
 - name: create systemd service
   ansible.builtin.template:
-    src: "{{ component }}.service.j2"
+    src: "{{ component }}.service"
     dest: "/etc/systemd/system/{{ component }}.service"
 - name: daemon realod
   ansible.builtin.systemd_service:
