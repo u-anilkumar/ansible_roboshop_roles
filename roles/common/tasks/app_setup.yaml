@@ -19,7 +19,7 @@
     state: absent
 - name: donwload code
   ansible.builtin.get_url:
-    path: /tmp/{{ component }}.zip
+    dest: /tmp/{{ component }}.zip
     url: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}-v3.zip 
 - name: unarchive app code
   ansible.builtin.unarchive:
