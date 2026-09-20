@@ -5,11 +5,6 @@
   ansible.builtin.dnf:
     name: nginx
     state: present
-- name: starting and enabling nginx
-  ansible.builtin.service:
-    name: nginx
-    state: started
-    enabled: true
 - name: removing default code
   ansible.builtin.command: rm -rf /usr/share/nginx/html/*
 - name: download  frontend code 
