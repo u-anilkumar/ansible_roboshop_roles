@@ -1,0 +1,30 @@
+- name: app setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app_setup.yaml
+- name: java setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: java_setup.yaml
+- name: install mysql clinet
+  ansible.builtin.dnf:
+    name: mysql
+    state: present
+- name: check if sql db is loaded
+  ansible.builtin.command: 
+    cmd: "mysql -h {{ MY_SQL_HOST }} -uroot -pRoboShop@1 -e 'use cities'"
+  ignore_errors: true
+  register: sql_op
+  changed_when: false
+- name: load schemas in mysql
+  ansible.builtin.shell: 
+    cmd: "mysql -h {{ MY_SQL_HOST }} -uroot -pRoboShop@1 < /app/db/{{ item }}.sql"
+  loop:
+    - schema
+    - app-user
+    - master-data
+  when: sql_op.rc != 0
+- name: systemd setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd_setup.yaml

@@ -1,0 +1,13 @@
+- name: installing java
+  ansible.builtin.dnf:
+    name: maven
+    state: present
+- name: installing dependencies
+  ansible.builtin.command: 
+    cmd: mvn clean package
+    chdir: /app
+- name: moving shipping.jar
+  ansible.builtin.copy:
+    src: /app/target/shipping-1.0.jar
+    dest: /app/shipping.jar
+    remote_src: true
