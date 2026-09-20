@@ -1,0 +1,29 @@
+- name: delete /app directory
+  ansible.builtin.file:
+    path: /app
+    state: absent
+- name: create /app directory
+  ansible.builtin.file:
+    path: /app
+    state: directory
+    mode: '0755'
+- name: create system user
+  ansible.builtin.user:
+    name: roboshop
+    home: /app
+    system: true
+    shell: /sbin/nologin
+- name: delete code   
+  ansible.builtin.file:
+    path: /tmp/{{ component }}.zip
+    state: absent
+- name: donwload code:
+  ansible.builtin.get_url:
+    path: /tmp/{{ component }}.zip
+    url: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}-v3.zip 
+- name: unarchive app code
+  ansible.builtin.unarchive:
+    dest: /app
+    src: /tmp/{{ component }}.zip
+    remote_src: true
+
