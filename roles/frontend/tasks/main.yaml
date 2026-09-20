@@ -21,6 +21,9 @@
     src: /tmp/frontend.zip
     dest: /usr/share/nginx/html/
     remote_src: true
+- name: Debug host variable values
+  ansible.builtin.debug:
+    msg: "CATALOGUE_HOST value is: {{ CATALOGUE_HOST }}"
 - name: configure reverse proxy
   ansible.builtin.template:
     src: nginx.conf.j2

@@ -4,7 +4,7 @@ ansible_password: DevOps321
 MONGO_HOST: mongodb-dev.anildevops.online
 CATALOGUE_HOST: catalogue-dev.anildevops.online
 REDIS_HOST: redis-dev.anildevops.online
-CART_HOST: cart--dev.anildevops.online
+CART_HOST: cart-dev.anildevops.online
 USER_HOST: user-dev.anildevops.online
 MY_SQL_HOST: mysql-dev.anildevops.online
 RABBIT_MQ_HOST: rabbitmq-dev.anildevops.online
