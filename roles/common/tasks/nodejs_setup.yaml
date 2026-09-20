@@ -7,3 +7,4 @@
 - name: install dependecies
   ansible.builtin.npm:
     path: /app
+    state: present
