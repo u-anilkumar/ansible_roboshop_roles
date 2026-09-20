@@ -8,5 +8,7 @@ CART_HOST: cart--dev.anildevops.online
 USER_HOST: user-dev.anildevops.online
 MY_SQL_HOST: mysql-dev.anildevops.online
 RABBIT_MQ_HOST: rabbitmq-dev.anildevops.online
+SHIPPING_HOST: shipping-dev.anildevops.online
+PAYMENT_HOST: payment-dev.anildevops.online
 
 
